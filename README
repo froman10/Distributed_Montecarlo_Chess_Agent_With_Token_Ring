@@ -1,0 +1,28 @@
+Compilar
+
+	Ubicarse en la carpeta contenedora mediante el terminal y ejecutar:
+
+		javac *.java
+
+Ejecutar
+	
+	Primero se debe habilitar el servicio rmi en cada esclavo y maestro:
+
+		rmiregistry &
+
+	Luego se debe ejecutar el servidor donde se encuentra el arbol
+
+		java ServidorSistemaArbol
+
+	Ahora ejecutamos los trabajadores normales en las diferentes máquinas
+
+		java MonteCarloAgentServer ip_sgte_trabajador ip_arbol
+
+
+	Finalmente ejecutamos el trabajador lider
+
+		java MonteCarloAgentServer ip_sgte_trabajador ip_arbol tiempo_en_min num_reps tablero
+
+	Para volver a ejecutar la simulacion completa, se debe cerrar el agente actual con ctrl+c e inciar de nuevo.
+
+	Importante tener en cuenta que, pensando en token-ring, a cada trabajador se le pasa la ip del trabajador que esta a su derecha.
